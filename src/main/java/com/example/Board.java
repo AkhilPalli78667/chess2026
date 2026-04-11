@@ -32,6 +32,9 @@ import javax.swing.JPanel;
 public class Board extends JPanel implements MouseListener, MouseMotionListener {
     // Resource location constants for piece images
     public static final String PICTURE_PATH = "/src/main/java/com/example/Pictures/";
+    private static final String RESOURCES_WSNAKE_PNG = PICTURE_PATH + "Wsnake.png";// white snake pic 
+    private static final String RESOURCES_BSNAKE_PNG = PICTURE_PATH + "download.png"; // black snake pic
+
     private static final String RESOURCES_WBISHOP_PNG = PICTURE_PATH + "wbishop.png";
     private static final String RESOURCES_BBISHOP_PNG = PICTURE_PATH + "bbishop.png";
     private static final String RESOURCES_WKNIGHT_PNG = PICTURE_PATH + "wknight.png";
@@ -77,7 +80,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
 
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
-
+ 
 
         // TO BE IMPLEMENTED FIRST
 
@@ -122,10 +125,10 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     void initializePieces() {
 
 
-        board[0][0].put(new Piece(true, RESOURCES_WKING_PNG));
+        board[2][3].put(new Piece(true, RESOURCES_WSNAKE_PNG));
 
     	
-    	board[0][0].put(new Piece(true, RESOURCES_WKING_PNG));
+    	board[5][3].put(new Piece(false, RESOURCES_BSNAKE_PNG));
 
         //board[0][2].put(new Piece (true, resources));
 
@@ -154,10 +157,6 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
-        for (int row = 0; row < 8; row++) {
-            for (int col = 0; col < 8; col++) {
-                board[row][col].draw(g);
-
      Image backgroundImage = null; 
      URL imageUrl = null;
      if (currPiece != null) {
@@ -177,7 +176,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
                 Square sq = board[x][y];
                 if(sq == fromMoveSquare)
                 	 sq.setBorder(BorderFactory.createLineBorder(Color.blue));
-                sq.paintComponent(g);
+                sq.draw(g);
                 //System.out.println("Painting square at " + x + ", " + y);   
                 
 
@@ -269,7 +268,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     
 
        
-        fromMoveSquare.setDisplay(true);
+        
 
         currPiece = null;
         repaint();

@@ -96,10 +96,7 @@ public class Square extends JComponent {
         if(!dispPiece){
             setBorder(BorderFactory.createLineBorder(Color.blue));
         }
-        else{
-            setBorder(null);
-        }
-
+     
         //please note that these values are not set here, but rather we are using a layout manager to help us place these evenly
         //for more information on how this works come back next year for programming 3! (or look it up yourself)
         g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
