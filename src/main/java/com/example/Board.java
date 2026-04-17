@@ -32,8 +32,8 @@ import javax.swing.JPanel;
 public class Board extends JPanel implements MouseListener, MouseMotionListener {
     // Resource location constants for piece images
     public static final String PICTURE_PATH = "/src/main/java/com/example/Pictures/";
-    private static final String RESOURCES_WSNAKE_PNG = PICTURE_PATH + "Wsnake.png";// white snake pic 
-    private static final String RESOURCES_BSNAKE_PNG = PICTURE_PATH + "download.png"; // black snake pic
+    private static final String RESOURCES_WSNAKE_PNG = PICTURE_PATH + "Wsnake_50 (2).png";// white snake pic 
+    private static final String RESOURCES_BSNAKE_PNG = PICTURE_PATH + "download (1).png"; // black snake pic
 
     private static final String RESOURCES_WBISHOP_PNG = PICTURE_PATH + "wbishop.png";
     private static final String RESOURCES_BBISHOP_PNG = PICTURE_PATH + "bbishop.png";
@@ -59,7 +59,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     private boolean whiteTurn;
 
     // if the player is currently dragging a piece this variable contains it.
-    Piece currPiece;
+    Snake currPiece;
     //the square your piece came from when the user tries to move it.
     private Square fromMoveSquare;
 
@@ -125,10 +125,10 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     void initializePieces() {
 
 
-        board[2][3].put(new Piece(true, RESOURCES_WSNAKE_PNG));
+        board[2][3].put(new Snake(true, RESOURCES_WSNAKE_PNG));
 
     	
-    	board[5][3].put(new Piece(false, RESOURCES_BSNAKE_PNG));
+    	board[5][3].put(new Snake(false, RESOURCES_BSNAKE_PNG));
 
         //board[0][2].put(new Piece (true, resources));
 
@@ -145,11 +145,11 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
         return whiteTurn;
     }
 
-    public void setCurrPiece(Piece p) {
+    public void setCurrPiece(Snake p) {
         this.currPiece = p;
     }
 
-    public Piece getCurrPiece() {
+    public Snake getCurrPiece() {
         return this.currPiece;
     }
 
