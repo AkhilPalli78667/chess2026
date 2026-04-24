@@ -117,4 +117,11 @@ public class Snake extends Piece{
         }
         return legalMoves;
     }
+    @Override
+    public String toString() {
+         return "A " + (getColor() ? "white" : "black") + " Snake";
+    }
+
+
+
 }

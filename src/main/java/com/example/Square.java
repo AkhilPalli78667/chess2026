@@ -18,7 +18,7 @@ public class Square extends JComponent {
     private final boolean color;
     
     //if there's a piece on the square this stores it. If there isn't this stores null.
-    private Snake occupyingPiece;
+    private Piece occupyingPiece;
     
     //True means to display the piece. This property will be switched to false when we are dragging a piece around while choosing our next move.
     private boolean dispPiece;
@@ -42,7 +42,7 @@ public class Square extends JComponent {
         return this.color;
     }
     
-    public Snake getOccupyingPiece() {
+    public Piece getOccupyingPiece() {
         return occupyingPiece;
     }
     
@@ -66,14 +66,14 @@ public class Square extends JComponent {
     
     //precondition: none
     //postcondition: the given piece p is placed into this square. p could be null.
-    public void put(Snake p) {
+    public void put(Piece p) {
         this.occupyingPiece = p;
     }
     
     //precondition: none
     //postcondition: returns the piece in this Square. Returns null if the square is empty.
-    public Snake removePiece() {
-        Snake p = this.occupyingPiece;
+    public Piece removePiece() {
+       Piece p = this.occupyingPiece;
         this.occupyingPiece = null;
         return p;
     }
